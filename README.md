@@ -20,7 +20,7 @@ A API está implantada no **Azure App Service**, garantindo alta disponibilidade
 
 - 🎯 .NET 8 - Framework principal da aplicação
 
-- 🛢️ SQL Server - Banco de dados relacional
+- 🛢️ Azure SQL Database - Banco de dados relacional em nuvem
 
 - ☁️ Azure Service App - Hospedagem da API na nuvem
 
