@@ -1,0 +1,18 @@
+POST - ImagemUsuario:
+
+{
+  "usuarioId": 1,
+  "imagemUrl": "https://example.com/imagem.jpg",
+  "dataEnvio": "2025-03-20T07:14:19.720Z"
+}
+
+POST - Usuário:
+
+{
+  "cpf": "44566677",
+  "nome": "Teste - Entrega Challege DevOps",
+  "sobrenome": "Super Teste DevOps",
+  "dataNascimento": "2025-03-20T07:12:54.943Z",
+  "genero": "M",
+  "dataCadastro": "2025-03-20T07:12:54.943Z"
+}
