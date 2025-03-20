@@ -15,6 +15,6 @@ namespace WebApiChallenge.Models
         public DateTime DataEnvio { get; set; } = DateTime.Now;
 
         // Relação com Usuario
-        public Usuario Usuario { get; set; }
+        public Usuario? Usuario { get; set; }
     }
 }

@@ -7,21 +7,26 @@ namespace WebApiChallenge.Models
     {
         [Column("previsao_usuario_id")]
         public int PrevisaoUsuarioId { get; set; }
+
         [Column("imagem_usuario_id")]
         public int ImagemUsuarioId { get; set; }
+
         [Column("usuario_id")]
         public int UsuarioId { get; set; }
+
         [Column("previsao_texto")]
         public string PrevisaoTexto { get; set; }
+
         [Column("probabilidade")]
         public decimal Probabilidade { get; set; }
+
         [Column("recomendacao")]
         public string Recomendacao { get; set; }
+
         [Column("data_previsao")]
         public DateTime DataPrevisao { get; set; } = DateTime.Now;
 
-        // Relações com ImagemUsuario e Usuario
-        public ImagemUsuario ImagemUsuario { get; set; }
-        public Usuario Usuario { get; set; }
+        public ImagemUsuario? ImagemUsuario { get; set; }
+        public Usuario? Usuario { get; set; }
     }
 }
