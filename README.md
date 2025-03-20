@@ -39,11 +39,34 @@ A API está implantada no **Azure App Service**, garantindo alta disponibilidade
 
 ### Passos
 
-1. Clone o repositório:
+**1️⃣ Clone o repositório:**
+```
+git clone https://github.com/caioedum/challenge-devops-sprint3.git
+```
+```
+cd challenge-devops-sprint3
+```
+```
+cd WebApiChallenge
+```
+**2️⃣ Restaurar pacotes NuGet:**
+```
+dotnet restore
+```
+**3️⃣ Rodar a API:**
+```
+dotnet run
+```
+**4️⃣ Acesse a API no navegador ou via Postman:**
 
-Acesse a documentação pelo Swagger após rodar a aplicação: 
-
+- **🔗 Endpoint padrão:**
+```
+https://localhost:7185
+```
+- **📜 Documentação Swagger:**
+```
 https://localhost:7185/index.html
+```
 
 ## 📌 Endpoints da API
 
