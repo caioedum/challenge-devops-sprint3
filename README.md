@@ -61,13 +61,9 @@ https://localhost:7185/index.html
 
 ## 👥 Integrantes do Grupo
 
-- 👤 Nome 1 - RMXXXXX
-
-- 👤 Nome 2 - RMXXXXX
-
-- 👤 Nome 3 - RMXXXXX
-
-- 👤 Nome 4 - RMXXXXX
+- **Caio Eduardo Nascimento Martins - RM554025**
+- **Julia Mariano Barsotti Ferreira - RM552713**
+- **Leonardo Gaspar Saheb - RM553383**
 
 ## 📝 Licença
 
