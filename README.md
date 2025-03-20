@@ -41,12 +41,11 @@ A API está implantada no **Azure App Service**, garantindo alta disponibilidade
 
 1. Clone o repositório:
 
-## 📌 Endpoints da API
-
 Acesse a documentação pelo Swagger após rodar a aplicação: 
 
 https://localhost:7185/index.html
 
+## 📌 Endpoints da API
 
 🔹 Exemplos de Endpoints
 
