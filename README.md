@@ -35,7 +35,6 @@ A API está implantada no **Azure App Service**, garantindo alta disponibilidade
 ### Pré-requisitos
 
 1. ✅ Instale o [.NET SDK 8](https://dotnet.microsoft.com/download/dotnet/8.0).
-2. ✅ Azure CLI (caso deseje implantar manualmente no Azure)
 
 ### Passos
 
