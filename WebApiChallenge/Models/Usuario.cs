@@ -1,34 +1,29 @@
-﻿using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApiChallenge.Models
 {
+    [Table("t_usuario_odontoprev")]
     public class Usuario
     {
+        [Column("usuario_id")]
         public int UsuarioId { get; set; }
 
-        public string? Cpf { get; set; }
+        [Column("cpf")]
+        public string Cpf { get; set; }
 
-        public string? Nome { get; set; }
+        [Column("nome")]
+        public string Nome { get; set; }
 
-        public string? Sobrenome { get; set; }
+        [Column("sobrenome")]
+        public string Sobrenome { get; set; }
 
-        public DateTime? DataNascimento { get; set; }
+        [Column("data_nascimento")]
+        public DateTime DataNascimento { get; set; }
 
-        public string? Genero { get; set; }
+        [Column("genero")]
+        public char Genero { get; set; }
 
-        public DateTime? DataCadastro { get; set; }
-
-        // Relacionamentos
-        public ICollection<Imagem>? Imagens { get; set; }
-
-        public ICollection<Previsao>? Previsoes { get; set; }
-
-        public Usuario()
-        {
-            Imagens = new Collection<Imagem>();
-            Previsoes = new Collection<Previsao>();
-        }
+        [Column("data_cadastro")]
+        public DateTime DataCadastro { get; set; } = DateTime.Now;
     }
 }

@@ -1,115 +1,56 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using WebApiChallenge.DTO;
-using WebApiChallenge.Interfaces;
 using WebApiChallenge.Models;
-using WebApiChallenge.Repositories;
 
-namespace WebApiChallenge.Controllers
+[Route("api/[controller]")]
+[ApiController]
+public class UsuariosController : ControllerBase
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class UsuariosController : ControllerBase
+    private readonly AppDbContext _context;
+
+    public UsuariosController(AppDbContext context)
     {
-        private readonly IUsuarioRepository _repository;
+        _context = context;
+    }
 
-        public UsuariosController(IUsuarioRepository repository)
-        {
-            _repository = repository;
-        }
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuarios()
+    {
+        return await _context.Usuarios.ToListAsync();
+    }
 
-        [HttpGet]
-        public IActionResult Get()
-        {
-            var usuarios = _repository.ObterTodos();
+    [HttpGet("{id}")]
+    public async Task<ActionResult<Usuario>> GetUsuario(int id)
+    {
+        var usuario = await _context.Usuarios.FindAsync(id);
+        if (usuario == null) return NotFound();
+        return usuario;
+    }
 
-            if (usuarios == null) return NotFound("Nenhum usuário encontrado.");
+    [HttpPost]
+    public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
+    {
+        _context.Usuarios.Add(usuario);
+        await _context.SaveChangesAsync();
+        return CreatedAtAction(nameof(GetUsuario), new { id = usuario.UsuarioId }, usuario);
+    }
 
-            var usuariosDto = usuarios.Select(u => new UsuarioDTO
-            {
-                UsuarioId = u.UsuarioId,
-                Cpf = u.Cpf,
-                Nome = u.Nome,
-                Sobrenome = u.Sobrenome,
-                DataNascimento = u.DataNascimento,
-                Genero = u.Genero,
-                DataCadastro = u.DataCadastro
-            });
+    [HttpPut("{id}")]
+    public async Task<IActionResult> PutUsuario(int id, Usuario usuario)
+    {
+        if (id != usuario.UsuarioId) return BadRequest();
+        _context.Entry(usuario).State = EntityState.Modified;
+        await _context.SaveChangesAsync();
+        return NoContent();
+    }
 
-            return Ok(usuariosDto);
-        }
-
-
-        [HttpGet("{id:int}")]
-        public IActionResult Get(int id)
-        {
-            var usuario = _repository.ObterPorId(id);
-
-            if (usuario == null)
-            {
-                return NotFound("O usuário não foi encontrado.");
-            }
-
-            var usuarioDto = new UsuarioDTO
-            {
-                UsuarioId = usuario.UsuarioId,
-                Cpf = usuario.Cpf,
-                Nome = usuario.Nome,
-                Sobrenome = usuario.Sobrenome,
-                DataNascimento = usuario.DataNascimento,
-                Genero = usuario.Genero,
-                DataCadastro = usuario.DataCadastro
-            };
-
-            return Ok(usuarioDto);
-        }
-
-        [HttpPost]
-        public IActionResult Post([FromBody] UsuarioCreateDTO usuarioCreateDto)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var usuario = new Usuario
-            {
-                Cpf = usuarioCreateDto.Cpf,
-                Nome = usuarioCreateDto.Nome,
-                Sobrenome = usuarioCreateDto.Sobrenome,
-                DataNascimento = usuarioCreateDto.DataNascimento,
-                Genero = usuarioCreateDto.Genero,
-                DataCadastro = usuarioCreateDto.DataCadastro ?? DateTime.Now
-            };
-
-            _repository.AdicionarUsuario(usuario);
-
-            return CreatedAtAction(nameof(Get), new { id = usuario.UsuarioId }, usuario);
-        }
-
-        [HttpPut("{id:int}")]
-        public IActionResult Put(int id, [FromBody] UsuarioCreateDTO usuarioCreateDto)
-        {
-            if (usuarioCreateDto == null)
-            {
-                return BadRequest("Dados inválidos.");
-            }
-
-            var usuarioExistente = _repository.ObterPorId(id);
-
-            if (usuarioExistente == null)
-            {
-                return NotFound();
-            }
-
-            usuarioExistente.Cpf = usuarioCreateDto.Cpf;
-            usuarioExistente.Nome = usuarioCreateDto.Nome;
-            usuarioExistente.Sobrenome = usuarioCreateDto.Sobrenome;
-            usuarioExistente.DataNascimento = usuarioCreateDto.DataNascimento;
-            usuarioExistente.Genero = usuarioCreateDto.Genero;
-
-            _repository.AtualizarUsuario(usuarioExistente);
-            return NoContent();
-        }
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteUsuario(int id)
+    {
+        var usuario = await _context.Usuarios.FindAsync(id);
+        if (usuario == null) return NotFound();
+        _context.Usuarios.Remove(usuario);
+        await _context.SaveChangesAsync();
+        return NoContent();
     }
 }
