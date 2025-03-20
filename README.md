@@ -16,8 +16,6 @@ Esta API foi projetada para fornecer uma solução escalável e eficiente, utili
 
 A API está implantada no **Azure App Service**, garantindo alta disponibilidade e integração contínua com o ambiente de nuvem 🌐.
 
----
-
 ## 🛠️ Tecnologias Utilizadas
 
 - 🎯 .NET 8 - Framework principal da aplicação
