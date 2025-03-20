@@ -45,21 +45,22 @@ A API está implantada no **Azure App Service**, garantindo alta disponibilidade
 
 Acesse a documentação pelo Swagger após rodar a aplicação: 
 
-´´´
-http://localhost:5000/swagger
-´´´
+https://localhost:7185/index.html
+
 
 🔹 Exemplos de Endpoints
 
-GET /api/entidade - Retorna todos os registros
+- GET /api/ImagemUsuario - Retorna todos os registros
 
-POST /api/entidade - Adiciona um novo registro
+- POST /api/ImagemUsuario - Adiciona um novo registro
+  
+- GET /api/ImagemUsuario - Retorna por Id
 
-PUT /api/entidade/{id} - Atualiza um registro
+- PUT /api/ImagemUsuario/{id} - Atualiza um registro
 
-DELETE /api/entidade/{id} - Remove um registro
+- DELETE /api/ImagemUsuario/{id} - Remove um registro
 
-👥 Integrantes do Grupo
+## 👥 Integrantes do Grupo
 
 - 👤 Nome 1 - RMXXXXX
 
