@@ -75,7 +75,7 @@ https://localhost:7185/index.html
 
 - POST /api/ImagemUsuario - Adiciona um novo registro
   
-- GET /api/ImagemUsuario - Retorna por Id
+- GET /api/ImagemUsuario/{id} - Retorna por Id
 
 - PUT /api/ImagemUsuario/{id} - Atualiza um registro
 
