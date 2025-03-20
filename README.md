@@ -2,7 +2,7 @@
 
 ## 📌 Sobre o Projeto
 
-Este projeto consiste em uma API RESTful desenvolvida em .NET 8, conectada ao banco de dados SQL Server e implantada no Azure Service App. A API é responsável por gerenciar [descreva brevemente a funcionalidade principal da API].
+Este projeto consiste em uma API RESTful desenvolvida em .NET 8, conectada ao banco de dados SQL Server e implantada no Azure Service App. A API é responsável por gerenciar dados e realizar CRUD via Swagger nas tabelas de Usuários, Imagens e Previsões.
 
 ---
 
@@ -24,7 +24,7 @@ A API está implantada no **Azure App Service**, garantindo alta disponibilidade
 
 - 🛢️ SQL Server - Banco de dados relacional
 
--☁️ Azure Service App - Hospedagem da API na nuvem
+- ☁️ Azure Service App - Hospedagem da API na nuvem
 
 - 🔗 Entity Framework Core - ORM para interação com o banco de dados
 
@@ -42,11 +42,8 @@ A API está implantada no **Azure App Service**, garantindo alta disponibilidade
 ### Passos
 
 1. Clone o repositório:
-🚀 Como Executar o Projeto
-Pré-requisitos
-Instale o .NET SDK 8.
 
-📌 Endpoints da API
+## 📌 Endpoints da API
 
 Acesse a documentação pelo Swagger após rodar a aplicação: 
 
